@@ -1,0 +1,65 @@
+2.2.2 / 2011-06-24
+
+	* Convert case functions improved: from all russian charsets to UTF8 native support was added
+	* UTF8::stripos() speed improved
+	* constant REPLACEMENT_CHAR added
+
+2.2.1 / 2011-06-08
+
+	* UTF8::preg_quote_case_insensitive() added
+	* UTF8::stripos() speed improved
+
+2.2.0 / 2011-06-06
+
+	* UTF8::strlen(), UTF8::substr(), UTF8::strpos(),
+	  UTF8::html_entity_encode(), UTF8::html_entity_decode(),
+      UTF8::convert_case(), UTF8::lowercase(), UTF8::uppercase() speed improved
+	* UTF8::stripos(), UTF8::to_unicode(), UTF8::from_unicode() added
+	* UTF8::strtolower(), UTF8::strtoupper() as wrapper to UTF8::convert_case() added
+	* Unicode character database to 6.0.0 (2010-06-04) updated
+	* UTF8::$convert_case_table improved
+
+2.1.3 / 2011-05-31
+
+	* UTF8::truncate() small bug fixed
+
+2.1.2 / 2011-03-25
+
+	* Класс требует PHP-5.3.x
+	* UTF8::$char_re deprecated
+	* Добавлен метод UTF8::tests(), который тестирует методы класса на правильность работы
+	* Добавлены методы UTF8::strcmp(), UTF8::strncmp(), UTF8::strcasecmp()
+	* UTF8::is_utf8(), UTF8::str_limit(), UTF8::str_split() speed improved
+	* Добавлен 2-й параметр в UTF8::html_entity_encode()
+	* Добавлен 3-й параметр в UTF8::ucwords()
+	* Методы UTF8::convert_case(), UTF8::lowercase(), UTF8::uppercase() могут принимать массив в 1-м параметре
+	* Мелкие улучшения в UTF8::strtr()
+	* Модернизирован класс ReflectionTypeHint
+
+2.1.1 / 2010-07-19
+
+	* Добавлены методы array_change_key_case(), range(), strtr()
+	* Улучшен метод convert_files_from()
+	* Unicode Character Database 5.2.0
+	* Исправлены ошибки в trim(), ltrim(), rtrim(), str_pad(), которые могут возникать в некоторых случаях
+
+2.1.0 / 2010-03-26
+
+	* Удалён метод unescape_recursive()
+	* Добавлен метод convert_files_from()
+	* Несколько методов теперь могут принимать массив и делать их обход рекурсивно
+	* Почти все методы для обработки строк могут принимать и возвращать NULL
+
+2.0.2 / 2010-02-13
+
+	* Новые методы is_ascii(), ltrim(), rtrim(), trim(), str_pad(), strspn()
+	* Исправлена небольшая ошибка в str_limit()
+	* Исправлена ошибка в методах convert_from() и convert_to(): они ошибочно возвращали FALSE,
+	  если подать на вход массив, содержащий элементы типа boolean со значением FALSE
+
+2.0.1 / 2010-02-08
+
+	* Удалён метод convert_from_cp1259(), используйте convert_from('cp1251')
+	* Метод convert_from_utf16() теперь приватный, используйте convert_from('UTF-16')
+	* Добавлены методы convert_to(), diactrical_remove(), diactrical_restore()
+	* Другие мелкие исправления
