@@ -47,7 +47,7 @@ namespace LangCorrect;
  * @author   Nasibullin Rinat
  * @version  1.4.3
  */
-class Text_LangCorrect
+class LangCorrect
 {
 	/**
 	 * Флаг для исправления ошибочно набранных букв в словах,
