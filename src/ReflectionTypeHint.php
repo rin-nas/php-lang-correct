@@ -62,7 +62,7 @@ class ReflectionTypeHint
 		$bt = self::debugBacktrace(null, 1);
 		extract($bt);  //to $file, $line, $function, $class, $object, $type, $args
 		if (! $args) return true; #speed improve
-		$r = new ReflectionMethod($class, $function);
+		$r = new \ReflectionMethod($class, $function);
 		$doc = $r->getDocComment();
 		$cache_id = $class. $type. $function;
 		preg_match_all('~	[\r\n]++ [\x20\t]++ \* [\x20\t]++
