@@ -34,4 +34,4 @@
 
 ## Ссылки по теме
 
-1. https://github.com/rin-nas/language-typos/
+1. [Keyboard layout typos correction in text on English and Russian languages](https://github.com/rin-nas/language-typos/)
