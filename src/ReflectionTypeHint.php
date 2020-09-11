@@ -1,4 +1,6 @@
 <?php
+namespace LangCorrect;
+
 /**
  * A class for validating method parameters to allowed types via reflection.
  *
@@ -17,7 +19,7 @@
  * Useful links
  *   http://www.ilia.ws/archives/205-Type-hinting-for-PHP-5.3.html
  *   http://php.net/manual/en/language.oop5.typehinting.php
- * 
+ *
  * @example  ReflectionTypeHint_example.php
  * @link     http://code.google.com/p/php5-reflection-type-hint/
  * @license  http://creativecommons.org/licenses/by-sa/3.0/
@@ -60,7 +62,7 @@ class ReflectionTypeHint
 		$bt = self::debugBacktrace(null, 1);
 		extract($bt);  //to $file, $line, $function, $class, $object, $type, $args
 		if (! $args) return true; #speed improve
-		$r = new ReflectionMethod($class, $function);
+		$r = new \ReflectionMethod($class, $function);
 		$doc = $r->getDocComment();
 		$cache_id = $class. $type. $function;
 		preg_match_all('~	[\r\n]++ [\x20\t]++ \* [\x20\t]++

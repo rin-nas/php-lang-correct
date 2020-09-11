@@ -1,4 +1,6 @@
 <?php
+namespace LangCorrect;
+
 /**
  * Automatic correction of the language for words in the text because of the wrong keyboard layout
  * Автоматическое исправление языка для слов в тексте из-за неправильной раскладки клавиатуры
@@ -45,7 +47,7 @@
  * @author   Nasibullin Rinat
  * @version  1.4.3
  */
-class Text_LangCorrect
+class LangCorrect
 {
 	/**
 	 * Флаг для исправления ошибочно набранных букв в словах,
@@ -69,7 +71,7 @@ class Text_LangCorrect
 
 	#английский (all)
 	private $en = '[a-zA-Z]';
-	
+
 	#английский (uppercase)
 	private $en_uc = '[A-Z]';
 
@@ -2822,7 +2824,7 @@ class Text_LangCorrect
 
 	/**
 	 * Исправляет клавиатурные опечатки в тексте.
-	 * 
+	 *
 	 * @param   scalar|null   $s       Текст в кодировке UTF-8.
 	 * @param   int           $mode    Константы self::SIMILAR_CHARS и/или self::KEYBOARD_LAYOUT,
 	 *                                 (их можно комбинировать). Описание констант см. выше.
@@ -2875,16 +2877,16 @@ class Text_LangCorrect
 		#например, это м. б. каталожные номера автозапчастей, в которых есть русские буквы: 1500A023, 52511-60900-H0, K2305, XA527672
 		#корректно обрабатываем вхождения '1-ое', 'Ту-134', 'А19-3107/06-43-Ф02-4227/06-С1'
 		if (version_compare(PHP_VERSION, '5.2.0', '<')) return $s;
-		return preg_replace_callback('~(?: (?<=[^-_/]|^)
+		return preg_replace_callback('~(?: (?<=[^\-_/]|^)
                                            (?:' . $this->ru_similar . ')++
-                                           (?= (?:' . $this->en . '|[-_/])*+ (?<=[^-_/]|' . $this->en . '[-_/])
-                                               \d [\d-_/]*+ (?!' . $this->tt_uniq . ')
+                                           (?= (?:' . $this->en . '|[\-_/])*+ (?<=[^\-_/]|' . $this->en . '[\-_/])
+                                               \d [\d\-_/]*+ (?!' . $this->tt_uniq . ')
                                            )
-                                         | (?<=[^-_/]|^)
-                                           \d  (?:' . $this->en . '|[-_/])*+ (?<=[^-_/]|' . $this->en . '[-_/])
+                                         | (?<=[^\-_/]|^)
+                                           \d  (?:' . $this->en . '|[\-_/])*+ (?<=[^\-_/]|' . $this->en . '[\-_/])
                                            \K
                                            (?:' . $this->ru_similar . ')++
-                                           (?= [\d-_/]*+ (?!' . $this->tt_uniq . ') )
+                                           (?= [\d\-_/]*+ (?!' . $this->tt_uniq . ') )
                                        )
                                       ~sxSX', array($this, '_entry'), $s);
 	}
@@ -3055,7 +3057,7 @@ class Text_LangCorrect
 
 		#если в $word были спецсимволы, а в $s их уже нет, возвращаем $s
 		if ($is_sc && ! preg_match('/' . $this->sc . '/sSX', $s)) return $s;
-		
+
 		#если в $s спецсимволов больше чем букв, возвращаем $word
 		$sc_count = 0;
 		$s = preg_replace('/' . $this->sc . '/sSX', '', $s, -1, $sc_count);

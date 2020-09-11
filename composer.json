@@ -1,0 +1,16 @@
+{
+    "name": "rin-nas/php-lang-correct",
+    "description": "Automatic correction of the language for words in the text because of the wrong keyboard layout",
+    "authors": [
+        {
+            "name": "Nasibullin Rinat",
+            "email": "rin-nas@ya.ru"
+        }
+    ],
+    "license": "CC BY-SA 3.0",
+    "autoload": {
+        "psr-4": {
+            "LangCorrect\\": "src/"
+        }
+    }
+}

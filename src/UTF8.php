@@ -1,4 +1,6 @@
 <?php
+namespace LangCorrect;
+
 /**
  * PHP5 UTF-8 is a UTF-8 aware library of functions mirroring PHP's own string functions.
  *
@@ -2390,7 +2392,7 @@ class UTF8
 	/**
 	 * Convert UTF-16 / UCS-2 encoding string to UTF-8.
 	 * Surrogates UTF-16 are supported!
-	 * 
+	 *
 	 * In Russian:
 	 * Преобразует строку из кодировки UTF-16 / UCS-2 в UTF-8.
 	 * Суррогаты UTF-16 поддерживаются!
@@ -2899,15 +2901,15 @@ class UTF8
 		switch (strlen($char))
 		{
 			case 1 : return $cache[$char] = ord($char);
-			case 2 : return $cache[$char] = (ord($char{1}) & 63) |
-											((ord($char{0}) & 31) << 6);
-			case 3 : return $cache[$char] = (ord($char{2}) & 63) |
-											((ord($char{1}) & 63) << 6) |
-											((ord($char{0}) & 15) << 12);
-			case 4 : return $cache[$char] = (ord($char{3}) & 63) |
-											((ord($char{2}) & 63) << 6) |
-											((ord($char{1}) & 63) << 12) |
-											((ord($char{0}) & 7)  << 18);
+			case 2 : return $cache[$char] = (ord($char[1]) & 63) |
+											((ord($char[0]) & 31) << 6);
+			case 3 : return $cache[$char] = (ord($char[2]) & 63) |
+											((ord($char[1]) & 63) << 6) |
+											((ord($char[0]) & 15) << 12);
+			case 4 : return $cache[$char] = (ord($char[3]) & 63) |
+											((ord($char[2]) & 63) << 6) |
+											((ord($char[1]) & 63) << 12) |
+											((ord($char[0]) & 7)  << 18);
 			default :
 				trigger_error('Character 0x' . bin2hex($char) . ' is not UTF-8!', E_USER_WARNING);
 				return false;
